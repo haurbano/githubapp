@@ -9,6 +9,8 @@ import kotlinx.coroutines.*
 
 class RepositoriesActivity : AppCompatActivity() {
 
+    private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
     private lateinit var repositoriesView: RepositoriesView
     private lateinit var fetchRepositoriesUseCase: FetchRepositoriesUseCase
     private lateinit var coroutineScope: CoroutineScope
