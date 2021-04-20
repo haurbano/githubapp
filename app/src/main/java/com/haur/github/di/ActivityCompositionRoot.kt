@@ -14,7 +14,5 @@ class ActivityCompositionRoot(
     val fetchRepositoriesUseCase
     get() = FetchRepositoriesUseCase(appCompositionRoot.githubService)
 
-    val coroutineScope get() = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
-
-    val mvcFactory get() = MvcFactory(layoutInflater)
+    val mvcFactory get() = MvcFactory()
 }
