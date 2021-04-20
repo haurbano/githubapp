@@ -8,15 +8,16 @@ import kotlinx.coroutines.*
 
 class RepositoriesActivity : AppCompatActivity() {
 
+    private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
     private lateinit var repositoriesView: RepositoriesView
     private lateinit var fetchRepositoriesUseCase: FetchRepositoriesUseCase
-    private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         repositoriesView = RepositoriesView(layoutInflater, null)
-        fetchRepositoriesUseCase = FetchRepositoriesUseCase()
         setContentView(repositoriesView.rootView)
+        fetchRepositoriesUseCase = FetchRepositoriesUseCase()
     }
 
     override fun onStart() {
