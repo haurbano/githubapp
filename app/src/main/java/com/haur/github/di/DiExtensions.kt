@@ -6,7 +6,7 @@ import com.haur.github.GithubApp
 fun Activity.dependencies() : ActivityCompositionRoot {
     val appCompositionRoot = (application as GithubApp).appCompositionRoot
     val activityCompositionRoot by lazy {
-        ActivityCompositionRoot(appCompositionRoot, layoutInflater)
+        ActivityCompositionRoot(appCompositionRoot)
     }
     return activityCompositionRoot
 }
