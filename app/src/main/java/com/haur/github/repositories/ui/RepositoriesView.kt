@@ -10,12 +10,11 @@ import com.haur.github.R
 
 class RepositoriesView(
     layoutInflater: LayoutInflater,
-    parent: ViewGroup?
+    parent: ViewGroup?,
+    private val repoAdapter: RepositoriesAdapter // is it needed?
 ) {
     val rootView: View = layoutInflater.inflate(R.layout.activity_repositories, parent, false)
-
     private val recyclerView = findViewById<RecyclerView>(R.id.repositoriesRV)
-    private val repoAdapter = RepositoriesAdapter()
 
     init {
         recyclerView.apply {
