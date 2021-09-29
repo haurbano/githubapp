@@ -5,16 +5,22 @@ import android.os.Bundle
 import com.haur.github.di.MvcFactory
 import com.haur.github.repositories.domain.FetchRepositoriesUseCase
 import com.haur.github.repositories.ui.RepositoriesView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
-import org.koin.android.ext.android.inject
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RepositoriesActivity : AppCompatActivity() {
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private lateinit var repositoriesView: RepositoriesView
-    private val fetchRepositoriesUseCase: FetchRepositoriesUseCase by inject()
-    private val mvcFactory: MvcFactory by inject()
+
+    @Inject
+    lateinit var fetchRepositoriesUseCase: FetchRepositoriesUseCase
+
+    @Inject
+    lateinit var mvcFactory: MvcFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

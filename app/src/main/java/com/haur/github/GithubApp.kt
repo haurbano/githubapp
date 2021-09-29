@@ -1,15 +1,7 @@
 package com.haur.github
 
 import android.app.Application
-import com.haur.github.di.mainModule
-import org.koin.core.context.startKoin
+import dagger.hilt.android.HiltAndroidApp
 
-class GithubApp: Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-        startKoin {
-            modules(mainModule)
-        }
-    }
-}
+@HiltAndroidApp
+class GithubApp: Application()
